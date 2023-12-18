@@ -1,0 +1,14 @@
+<h1>画像投稿フォーム
+<%= form_with(model: @book, url: books_path, local: true) do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :opinion %><br>
+    <%= form.text_area :opinion %>
+  </div>
+
+  <%= form.submit "Create Book" %>
+<% end %>
