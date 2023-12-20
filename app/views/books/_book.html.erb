@@ -1,5 +1,5 @@
 
-  <h1>User info</h1>
+<h1>User info</h1>
 
 <% if user && user.profile_image.attached? %>
   <%= image_tag user.profile_image.variant(resize: "75x75").processed, width: 75, height: 75 %>
@@ -8,39 +8,41 @@
 <% end %>
 
 
-<table>
-  <thead>
-    <tr>
-      <th>name</th>
-      <th><%= user.name %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>introduction</th>
-      <th><%= user.introduction %></th>
-    </tr>
-  </tbody>
-  <tfoot>
-  </tfoot>
-</table>
-
-<%#= link_to "Edit",edit_user_path(user.id) %>
-
-
-
-<h1>New Book</h1>
-
-<%= form_with(model: book, url: books_path, local: true) do |form| %>
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>name</th>
+        <th><%= user.name %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>introduction</th>
+        <th><%= user.introduction %></th>
+      </tr>
+    </tbody>
+    <tfoot>
+    </tfoot>
+  </table>
+  <div class= "row" >
+    <%= link_to edit_user_path(current_user.id) , class: 'btn btn-outline-secondary btn-block edit_user_149432' do %>
+       <i class="fa-solid fa-user-gear"></i>
+    <% end %>
   </div>
 
-  <div>
-    <%= form.label :opinion %><br>
-    <%= form.text_area :opinion %>
-  </div>
 
-  <%= form.submit "Create Book" %>
-<% end %>
+  <h1>New Book</h1>
+
+  <%= form_with(model: book, url: books_path, local: true) do |form| %>
+    <div>
+      <%= form.label :title %><br>
+      <%= form.text_field :title %>
+    </div>
+
+    <div>
+      <%= form.label :opinion %><br>
+      <%= form.text_area :opinion %>
+    </div>
+
+    <%= form.submit "Create Book" %>
+  <% end %>
