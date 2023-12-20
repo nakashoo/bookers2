@@ -1,3 +1,6 @@
+<%= render 'books/book',user: @user, book: @book %>
+
+
 <h1>Books</h1>
 
 <table>
@@ -14,7 +17,7 @@
       <% @books.each do |book| %>
     <tr>
     <td></td>
-    <td><%= link_to "#{book.title}",book_path(book) %></td>
+    <td><%= link_to book.title, book_path(book) %></td>
     <td><%= book.opinion %></td>
     <td></td>
     <td></td>
