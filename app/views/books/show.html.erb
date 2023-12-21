@@ -20,7 +20,7 @@
          </thead>
         <tbody>
           <tr>
-          <td></td>
+          <td><%= image_tag @book.user.get_profile_image,size: "100x100" %></td>
           <td><%= @book.title %></td>
           <td><%= @book.opinion %></td>
           <td><%= link_to 'Edit',edit_book_path(@book.id), class: "btn btn-sm btn-success edit_book_115083" %></td>
@@ -31,4 +31,5 @@
         </tfoot>
       </table>
     </div>
+   </div>
 
