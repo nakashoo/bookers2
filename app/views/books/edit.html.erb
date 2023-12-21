@@ -5,18 +5,19 @@
       <h1>Editing Book</h1>
 
       <%= form_with(model: @book, url: book_path(@book), local: true, method: :patch) do |form| %>
-        <div >
-        <%= form.label :title %><br>
-        <%= form.text_field :title %>
+        <div class="form-group">
+          <label for = "book_title" >Title</label>
+          <%= form.text_field :title ,class: "form-control book_title"  %>
         </div>
 
-        <div>
-        <%= form.label :opinion %><br>
-        <%= form.text_area :opinion %>
+
+        <div class="form-group">
+          <label for = "book_opinion" >Opinion</label>
+          <%= form.text_area :opinion ,class: "form-control book_body" %>
         </div>
 
-        <div>
-        <%= form.submit "Update User" , class: "btn btn-success" %>
+        <div class="form-group">
+          <%= form.submit "Create Book" , class: "btn btn-success" %>
         </div>
 
         <%= link_to 'Show',book_path(@book.id) %>|<%= link_to 'Back',books_path %>
