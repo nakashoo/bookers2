@@ -21,7 +21,7 @@
       <tbody>
           <% @books.each do |book| %>
         <tr>
-        <td></td>
+        <td><%= image_tag book.user.get_profile_image,size: "100x100" %></td>
         <td><%= link_to book.title, book_path(book) %></td>
         <td><%= book.opinion %></td>
         <td></td>
