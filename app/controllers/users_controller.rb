@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     @users = User.all
     @user = User.new
     @book = Book.new
+    @user = current_user
   end
 
 
