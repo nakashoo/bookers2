@@ -3,6 +3,6 @@ class Book < ApplicationRecord
   belongs_to :user
 
   validates :title, presence: true
-  validates :opinion, length: { maximum: 20 }
+  validates :opinion,  presence: true, length: { maximum: 20 }
 
 end
