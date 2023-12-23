@@ -1,5 +1,16 @@
 <p id="notice"></p>
 <div class="container px-5 px-sm-0" >
+
+     <% if @book.errors.any? %>
+        <h2><%= @book.errors.count %> errors prohibited this user from being saved:</h2>
+        <ul>
+          <% @book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      <% end %>
+
+
   <div class= "row">
     <div class= "col-md-3">
       <%= render 'books/book',user: @user, book: @book %>
