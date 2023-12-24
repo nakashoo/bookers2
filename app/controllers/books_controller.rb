@@ -1,5 +1,8 @@
 class BooksController < ApplicationController
 before_action :is_matching_login_user
+before_action :is_matching_login_book,only: [:edit]
+
+
   def index
     @books = Book.all
     @book = Book.new
@@ -60,5 +63,13 @@ before_action :is_matching_login_user
      redirect_to new_user_session_path
      end
    end
+
+
+  def is_matching_login_book
+    @book = Book.find(params[:id])
+    unless @book.user_id == current_user.id
+      redirect_to books_path
+    end
+  end
 
 end
