@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+ before_action :is_matching_login_user
 
   def index
     @users = User.all
@@ -17,9 +18,9 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    if current_user.id != @user.id
-      redirect_to user_path(current_user)
-    end
+     if current_user.id != @user.id
+       redirect_to user_path(current_user)
+     end
   end
 
   def update
@@ -37,5 +38,10 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name,:introduction, :profile_image)
   end
 
+   def is_matching_login_user
+     unless user_signed_in?
+     redirect_to new_user_session_path
+     end
+   end
 
 end

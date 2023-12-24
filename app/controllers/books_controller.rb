@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-
+before_action :is_matching_login_user
   def index
     @books = Book.all
     @book = Book.new
@@ -55,5 +55,10 @@ class BooksController < ApplicationController
     params.require(:book).permit(:title,:body)
   end
 
+   def is_matching_login_user
+     unless user_signed_in?
+     redirect_to new_user_session_path
+     end
+   end
 
 end
